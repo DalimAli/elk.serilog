@@ -17,46 +17,6 @@ Extract file somewhere in File Explorer
 
 action.auto_create_index: .monitoring*,.watches,.triggered_watches,.watcher-history*,.ml*
 
----> check below lines
-
---> Enable security features
-
-xpack.security.enabled: true
-
-xpack.security.enrollment.enabled: true
-
---> Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
-
-xpack.security.http.ssl:
-
-  enabled: false
-  
-  keystore.path: certs/http.p12
-
---> Enable encryption and mutual authentication between cluster nodes
-
-xpack.security.transport.ssl:
-
-  enabled: false
-  
-  verification_mode: certificate
-  
-  keystore.path: certs/transport.p12
-  
-  truststore.path: certs/transport.p12
-  
---> Create a new cluster with the current node only
-
---> Additional nodes can still join the cluster later
-
-cluster.initial_master_nodes: ["Your computer name"]
-
-Allow HTTP API connections from localhost and local networks
-
---> Connections are encrypted and require user authentication
-
-http.host: [_local_, _site_]
-
 # Open command prompt as admistrator and redirect to elastic search bin folder
 
 type elasticsearch.bat and hit enter
@@ -64,6 +24,8 @@ type elasticsearch.bat and hit enter
 Booooom ----->
 
 elastic search will start running
+
+Don't forget to copy HTTP CA certificate SHA-256 fingerprint AND Password for the elastic user
 
 # Password reset 
 
